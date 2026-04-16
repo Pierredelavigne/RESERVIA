@@ -1,26 +1,39 @@
 import Link from "next/link";
-import { MapPin } from "lucide-react";
+import { Compass, Globe, Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-slate-900 text-slate-400">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
           {/* Marque */}
-          <div>
-            <div className="flex items-center gap-2 text-white font-bold text-lg mb-3">
-              <MapPin className="w-5 h-5 text-blue-400" />
-              Reservia
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center">
+                <Compass className="w-4.5 h-4.5 text-white" strokeWidth={2.5} />
+              </div>
+              <span className="text-white font-extrabold text-xl">Reservia</span>
             </div>
-            <p className="text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed max-w-xs text-slate-500">
               Découvrez les plus belles destinations du monde et réservez votre prochain voyage en quelques clics.
             </p>
+            <div className="flex items-center gap-3 mt-5">
+              {[Globe, Mail, Phone].map((Icon, i) => (
+                <div
+                  key={i}
+                  className="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-slate-700 hover:text-white transition-colors cursor-pointer"
+                >
+                  <Icon className="w-4 h-4" />
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="text-white font-semibold text-sm mb-4">Navigation</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="text-white font-semibold text-sm mb-5">Explorer</h3>
+            <ul className="space-y-3 text-sm">
               <li>
                 <Link href="/" className="hover:text-white transition-colors">
                   Accueil
@@ -28,12 +41,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/destinations" className="hover:text-white transition-colors">
-                  Destinations
-                </Link>
-              </li>
-              <li>
-                <Link href="/account" className="hover:text-white transition-colors">
-                  Mon compte
+                  Toutes les destinations
                 </Link>
               </li>
             </ul>
@@ -41,8 +49,8 @@ export default function Footer() {
 
           {/* Compte */}
           <div>
-            <h3 className="text-white font-semibold text-sm mb-4">Mon espace</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="text-white font-semibold text-sm mb-5">Mon espace</h3>
+            <ul className="space-y-3 text-sm">
               <li>
                 <Link href="/login" className="hover:text-white transition-colors">
                   Connexion
@@ -62,8 +70,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-10 pt-6 text-sm text-center">
-          © {new Date().getFullYear()} Reservia. Projet scolaire — tous droits réservés.
+        <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-600">
+          <p>© {new Date().getFullYear()} Reservia. Projet scolaire.</p>
+          <p>Fait avec ❤️ et Next.js</p>
         </div>
       </div>
     </footer>

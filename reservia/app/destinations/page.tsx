@@ -98,9 +98,10 @@ export default async function DestinationsPage({ searchParams }: PageProps) {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Destinations</h1>
-        <p className="text-gray-500 mt-1">
+      <div className="mb-10">
+        <p className="text-sky-600 font-semibold text-sm tracking-wide uppercase mb-1">Explorer</p>
+        <h1 className="text-3xl font-extrabold text-slate-900">Destinations</h1>
+        <p className="text-slate-500 mt-1.5">
           {total} destination{total > 1 ? "s" : ""} disponible{total > 1 ? "s" : ""}
         </p>
       </div>
@@ -117,8 +118,8 @@ export default async function DestinationsPage({ searchParams }: PageProps) {
         <div className="flex-1">
           {destinations.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-24 text-center">
-              <p className="text-gray-400 text-lg">Aucune destination ne correspond à vos critères.</p>
-              <p className="text-gray-400 text-sm mt-2">Essayez d&apos;élargir votre recherche.</p>
+              <p className="text-slate-400 text-lg">Aucune destination ne correspond à vos critères.</p>
+              <p className="text-slate-400 text-sm mt-2">Essayez d&apos;élargir votre recherche.</p>
             </div>
           ) : (
             <>
