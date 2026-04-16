@@ -133,7 +133,7 @@ Demander validation avant : rm, git reset --hard, git push --force, prisma migra
 10. ✅ Espace utilisateur (mes réservations, annulation)
 11. ✅ Interface admin (CRUD destinations + liste réservations)
 12. ✅ Polish : loading.tsx, error.tsx, not-found.tsx, responsive
-13. ⏳ README final + schéma BDD + captures
+13. ✅ README final + schéma BDD + .env.example
 
 ## Barème de notation (référence)
 - Pages principales complètes : 2 pts
