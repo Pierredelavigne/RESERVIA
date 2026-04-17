@@ -506,7 +506,7 @@ const destinations = [
     shortDescription: "Le plus grand désert de sel du monde à 3 650 m d'altitude",
     description: "Le Salar d'Uyuni est le plus grand désert de sel du monde avec 10 582 km², situé dans le département de Potosí en Bolivie à 3 650 m d'altitude. En saison des pluies (décembre-mars), une fine couche d'eau transforme le salar en miroir parfait reflétant le ciel. Il contient 50 à 70 % des réserves mondiales de lithium. L'île Incahuasi, couverte de cactus géants au centre du salar, est une escale iconique.",
     basePrice: 110,
-    imageUrl: "https://images.unsplash.com/photo-1591160690555-5d7ac7ceb3ef?w=800",
+    imageUrl: "https://images.unsplash.com/photo-1547516952-2097b1c23a7f?w=800",
     gallery: ["https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800", "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800"],
   },
   {
