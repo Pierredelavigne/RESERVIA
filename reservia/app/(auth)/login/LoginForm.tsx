@@ -11,7 +11,7 @@ import { loginSchema, type LoginInput } from "@/lib/validations/auth";
 export default function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") ?? "/";
+  const callbackUrl = searchParams.get("callbackUrl") ?? "/account";
   const [erreur, setErreur] = useState<string | null>(null);
 
   const {

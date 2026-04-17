@@ -52,7 +52,7 @@ test.describe("Page détail destination", () => {
   test("affiche les détails d'une destination accessible", async ({ page }) => {
     // On passe d'abord par la liste pour récupérer un lien valide
     await page.goto("/destinations");
-    const premiereCarteLink = page.locator("[data-testid='destination-card'] a").first();
+    const premiereCarteLink = page.locator("[data-testid='destination-card']").first();
     await expect(premiereCarteLink).toBeVisible({ timeout: 10000 });
     await premiereCarteLink.click();
     await expect(page).toHaveURL(/\/destinations\/.+/);
@@ -61,7 +61,7 @@ test.describe("Page détail destination", () => {
 
   test("le bouton Réserver redirige vers /login si non connecté", async ({ page }) => {
     await page.goto("/destinations");
-    const premiereCarteLink = page.locator("[data-testid='destination-card'] a").first();
+    const premiereCarteLink = page.locator("[data-testid='destination-card']").first();
     await expect(premiereCarteLink).toBeVisible({ timeout: 10000 });
     await premiereCarteLink.click();
     const btnReserver = page.getByRole("link", { name: /réserver/i });
@@ -74,7 +74,8 @@ test.describe("Page détail destination", () => {
 test.describe("Navbar", () => {
   test("affiche les liens Connexion et S'inscrire si non connecté", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByRole("link", { name: /connexion/i })).toBeVisible();
-    await expect(page.getByRole("link", { name: /s'inscrire/i })).toBeVisible();
+    const nav = page.getByRole("navigation");
+    await expect(nav.getByRole("link", { name: /connexion/i })).toBeVisible();
+    await expect(nav.getByRole("link", { name: /s'inscrire/i })).toBeVisible();
   });
 });
