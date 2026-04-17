@@ -10,8 +10,10 @@ export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
     const search = searchParams.get("search") ?? "";
     const country = searchParams.get("country") ?? "";
-    const minPrice = parseFloat(searchParams.get("minPrice") ?? "0") || 0;
-    const maxPrice = parseFloat(searchParams.get("maxPrice") ?? "0") || 0;
+    const rawMin = parseFloat(searchParams.get("minPrice") ?? "0");
+    const rawMax = parseFloat(searchParams.get("maxPrice") ?? "0");
+    const minPrice = Number.isFinite(rawMin) && rawMin > 0 ? rawMin : 0;
+    const maxPrice = Number.isFinite(rawMax) && rawMax > 0 ? rawMax : 0;
     const page = Math.max(1, parseInt(searchParams.get("page") ?? "1"));
     const limit = 9;
 

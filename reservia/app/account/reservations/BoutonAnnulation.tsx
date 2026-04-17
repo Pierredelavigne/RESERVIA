@@ -8,18 +8,31 @@ export default function BoutonAnnulation({ id }: { id: string }) {
   const router = useRouter();
   const [confirmer, setConfirmer] = useState(false);
   const [chargement, setChargement] = useState(false);
+  const [erreur, setErreur] = useState<string | null>(null);
 
   async function annuler() {
     setChargement(true);
-
-    await fetch(`/api/reservations/${id}`, { method: "PATCH" });
-
-    router.refresh();
+    setErreur(null);
+    try {
+      const res = await fetch(`/api/reservations/${id}`, { method: "PATCH" });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setErreur(data.message ?? "Erreur lors de l'annulation");
+        return;
+      }
+      router.refresh();
+    } catch {
+      setErreur("Erreur réseau, veuillez réessayer");
+    } finally {
+      setChargement(false);
+    }
   }
 
   if (confirmer) {
     return (
-      <div className="flex items-center gap-2">
+      <div className="flex flex-col gap-1">
+        {erreur && <p className="text-xs text-red-600">{erreur}</p>}
+        <div className="flex items-center gap-2">
         <span className="text-xs text-gray-500">Confirmer l&apos;annulation ?</span>
         <button
           onClick={annuler}
@@ -34,6 +47,7 @@ export default function BoutonAnnulation({ id }: { id: string }) {
         >
           Non
         </button>
+        </div>
       </div>
     );
   }
