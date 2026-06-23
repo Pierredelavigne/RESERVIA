@@ -2,7 +2,7 @@
 
 Plateforme de réservation de voyages développée dans le cadre d'un projet scolaire.  
 Stack : **Next.js 16 · React 19 · TypeScript · Tailwind CSS v4 · Prisma · PostgreSQL · NextAuth v4**
-
+Fait par Lucas VAN VOOREN et Pierre Delavigne
 ---
 
 ## Lancement rapide
@@ -65,12 +65,12 @@ L'application est disponible sur [http://localhost:3000](http://localhost:3000).
 | TypeScript | 5 | Typage strict |
 | Tailwind CSS | 4 | Styles |
 | Prisma | 7 | ORM |
-| PostgreSQL | — | Base de données |
+| PostgreSQL | - | Base de données |
 | NextAuth | 4 | Authentification |
 | Zod | 4 | Validation schémas |
 | React Hook Form | 7 | Formulaires |
 | bcrypt | 6 | Hash des mots de passe |
-| lucide-react | — | Icônes |
+| lucide-react | - | Icônes |
 
 ---
 
@@ -192,9 +192,9 @@ reservia/
 
 | URL | Description |
 |-----|-------------|
-| `/` | Accueil — hero, recherche, 6 destinations populaires |
+| `/` | Accueil - hero, recherche, 6 destinations populaires |
 | `/destinations` | Liste avec filtres (recherche, pays, prix) et pagination |
-| `/destinations/[id]` | Détail — galerie lightbox, description, bouton réserver |
+| `/destinations/[id]` | Détail - galerie lightbox, description, bouton réserver |
 | `/destinations/[id]/reserver` | Formulaire de réservation avec calcul prix temps réel |
 | `/login` | Connexion |
 | `/register` | Inscription |
